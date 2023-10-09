@@ -44,7 +44,7 @@
 			"i18n": "messagebundle.properties",
 			"css": true,
 			"content": {
-				"controls": ["custufficiocont.zufficiocontlibrary.InputUfficioCont"],
+				"controls": ["custufficiocont.zufficiocontlibrary.uffcontInput"],
 				"elements": [],
 				"types": [],
 				"interfaces": []

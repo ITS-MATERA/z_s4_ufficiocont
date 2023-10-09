@@ -1,5 +1,47 @@
 <core:FragmentDefinition
 	xmlns="sap.m"
 	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 >
+	<Dialog title="Ufficio contabile">
+		<content>
+			<Panel visible="{EntityModelUffCont>/PanelFilterVisible}">
+				<l:Grid defaultSpan="XL12 L12 M12 S12" vSpacing="0"> 
+					<Label text="Ufficio contabile:" ><layoutData><l:GridData span="XL6 L6 M6 S12" /></layoutData></Label>
+            		<Input value="{EntityModelUffCont>/ZufficioCont}" ><layoutData><l:GridData span="XL6 L6 M6 S12" /></layoutData></Input>
+				</l:Grid>
+			</Panel>
+			<Panel visible="{EntityModelUffCont>/PanelResultVisible}">
+				<Table class="sapUxAPObjectPageSubSectionAlignContent"
+					id="_libTableUffCont"
+					items="{
+					path: 'EntityModelUffCont>/UfficioContResults'
+					}"
+					mode="SingleSelectMaster"
+					growing="true"
+					width="auto"
+				>
+					<columns>
+						<Column ><Text text="Ufficio contabile"/></Column>
+            <Column ><Text text="Descrizione"/></Column>
+					</columns>
+					<items>
+						<ColumnListItem 
+							  app:ZuffCont="{EntityModelUffCont>ZufficioCont}"
+                app:ZvimDescrufficio="{EntityModelUffCont>ZvimDescrufficio}" >
+							<Text text="{EntityModelUffCont>ZufficioCont}"/>
+              <Text text="{EntityModelUffCont>ZvimDescrufficio}"/>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</Panel>
+		</content>
+		<buttons>
+			<Button text="Chiudi" press="_libOnCloseUffContDialog" visible="{EntityModelUffCont>/PanelFilterVisible}"/>
+			<Button text="Cerca" press="_libOnSearchUffContDialog" visible="{EntityModelUffCont>/PanelFilterVisible}"/>
+			<Button text="Indietro" press="_libOnBackUffContDialog" visible="{EntityModelUffCont>/PanelResultVisible}"/>
+			<Button text="Conferma" press="_libOnConfirmUffContDialog" visible="{EntityModelUffCont>/PanelResultVisible}"/>
+		</buttons>
+	</Dialog>
 </core:FragmentDefinition>

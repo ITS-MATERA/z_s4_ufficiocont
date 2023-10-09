@@ -21,7 +21,7 @@ sap.ui.define([
 		types: [],
 		interfaces: [],
 		controls: [
-			"custufficiocont.zufficiocontlibrary.controls.InputUfficioCont"			
+			"custufficiocont.zufficiocontlibrary.controls.uffcontInput"			
 		],
 		elements: [],
 		noLibraryCSS: false // if no CSS is provided, you can disable the library.css load here
